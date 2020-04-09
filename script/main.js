@@ -5,28 +5,37 @@ $(document).ready(function(){
 // references
 
 var btnDx = $('.icon-dx > i');
-console.log(btnDx);
 var btnSx = $('.icon-sx > i');
-var imageFirst = $('.first-img');
+var img = $('.wallpaper img')
 
 
 
+btnDx.click(function (){
+  var selected = $('.wallpaper img.active')
+  if (selected.hasClass('active')) {
 
-btnDx.click( function(){
+    selected.removeClass('active');
+    selected.next().addClass('active');
+  
+  }
+  
+})
 
- 
-  imageFirst.show();
+btnSx.click(function (){
+  var selected = $('.wallpaper img.active')
+  if (selected.hasClass('active')) {
+
+    selected.removeClass('active');
+    selected.prev().addClass('active');
+  
+  }
+  
 })
 
 
 
 
-// btnDx.click( function () {
 
-  
-//   imageFirst.hide();
-// console.log(btnDx(click));
-// });
 
 
 

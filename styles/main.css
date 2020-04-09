@@ -64,20 +64,12 @@
 }
 
 
-.first-img{
-  display: block;
-}
-.first-img{
+.none {
   display: none;
 }
-.first-img{
-  display: block;
-}
-.first-img{
-  display: none;
-}
-
 
 .active {
   display: block;
 }
+
+
