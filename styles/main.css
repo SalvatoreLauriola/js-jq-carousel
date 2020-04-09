@@ -32,6 +32,7 @@
 .icon-sx i,
 .icon-dx i {
   font-size: 80px;
+  cursor: pointer;
 }
 
 .wallpaper .slider {
@@ -63,8 +64,20 @@
 }
 
 
-.wallpaper img:nth-child(2),
-.wallpaper img:nth-child(3),
-.wallpaper img:nth-child(4){
+.first-img{
+  display: block;
+}
+.first-img{
   display: none;
+}
+.first-img{
+  display: block;
+}
+.first-img{
+  display: none;
+}
+
+
+.active {
+  display: block;
 }
