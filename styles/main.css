@@ -46,16 +46,13 @@
   border-radius: 30px;
 }
 
-.circle {
+.circlebox {
  display: flex;
  justify-content: center;
   
 }
 
-.circle-1,
-.circle-2,
-.circle-3,
-.circle-4 {
+.circle{
   width: 20px;
   height: 20px;
   background-color: white;
@@ -70,6 +67,10 @@
 
 .active {
   display: block;
+}
+
+.active2 {
+  background-color: blue;
 }
 
 
