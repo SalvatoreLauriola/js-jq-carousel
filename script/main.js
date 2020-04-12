@@ -1,74 +1,96 @@
-$(document).ready(function(){
+$(document).ready(function(){   // Inizio document ready
+
+  // Referenze delle variabili
+
+var btnDx = $('.icon-dx > i'); // Bottone destro
+
+var btnSx = $('.icon-sx > i'); //Bottone sinistro
+
+var firstImg = $('.first'); //Selettore prima immagine
+
+var lastImg = $('.last'); //Selettore ultima immagine
+
+var firstCircle = $('.first2'); //Selezione primo cerchio
+
+var lastCircle = $('.last2'); //Selezione ultimo cerchio
 
 
 
-// references
+// - Eventi -
 
-var btnDx = $('.icon-dx > i');
-var btnSx = $('.icon-sx > i');
-
-var firstImg = $('.first');
-var lastImg = $('.last');
-
-var firstCircle = $('.first2');
-var lastCircle = $('.last2');
-
-
+// Richiamo la funzione al click.
 btnDx.click(function (){
+  // Variabile che seleziona l'immagine dell'html
   var selected = $('.wallpaper img.active')
-  
-  
-  selected.removeClass('active');
-  selected.next().addClass('active');
-  if (selected.hasClass('last')){
-    firstImg.addClass('active');
-    
-  }
+  // Richiamo la funzione che rimuove active se presente e lo da alla immagine successiva.
+  arrow(selected, firstImg);
+  // Variabile che seleziona il cerchio in html.
   var selected2 = $('.circlebox .circle.active2')
-  selected2.removeClass('active2');
-  selected2.next().addClass('active2');
-  if (selected2.hasClass('last2')){
-    firstCircle.addClass('active2');
-  }
-})
+  // Richiamo la funzione che rimuove active se presente e lo da al cerchio successivo.
+  circle(selected2, firstCircle);
+});
+
+
 
 btnSx.click(function (){
   var selected = $('.wallpaper img.active')
- 
-
-  selected.removeClass('active');
-  selected.prev().addClass('active');
-  if (selected.hasClass('first')){
-    lastImg.addClass('active');
-  }
+  arrow2(selected, lastImg);
   var selected2 = $('.circlebox .circle.active2')
-  selected2.removeClass('active2');
-  selected2.prev().addClass('active2');
-  if (selected2.hasClass('first2')){
-    lastCircle.addClass('active2');
-  }
+  circle2(selected2, lastCircle)
   
+});
+
+$(document).keydown(function (key){
+
+  if(key.keyCode == 37) {
+    var selected = $('.wallpaper img.active')
+    arrow2(selected, lastImg);
+    
+    var selected2 = $('.circlebox .circle.active2')
+    circle2(selected2, lastCircle)
+    
+  } else if(key.keyCode == 39) {
+    var selected = $('.wallpaper img.active');
+    arrow(selected, firstImg);
+    var selected2 = $('.circlebox .circle.active2');
+    circle(selected2, firstCircle);
+  }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 });  //end ready
+
+// Creazione funzioni da riutilizzare, anche fuori dal document.
+
+function circle (valore1, valore2){
+  valore1.removeClass('active2');
+  valore1.next().addClass('active2');
+  if (valore1.hasClass('last2')){
+    valore2.addClass('active2');
+  }
+}
+
+function arrow (valore1, valore2){
+  valore1.removeClass('active');
+  valore1.next().addClass('active');
+  if (valore1.hasClass('last')){
+    valore2.addClass('active');
+  }  
+}
+
+function circle2 (valore1, valore2){
+  valore1.removeClass('active2');
+  valore1.prev().addClass('active2');
+  if (valore1.hasClass('first2')){
+    valore2.addClass('active2');
+  }
+}
+
+function arrow2 (valore1, valore2){
+  valore1.removeClass('active');
+  valore1.prev().addClass('active');
+  if (valore1.hasClass('first')){
+    valore2.addClass('active');
+  }  
+}
